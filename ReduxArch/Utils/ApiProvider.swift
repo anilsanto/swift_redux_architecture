@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+
+func authenticateUser(requestBody : Request<String>,completionHandler: @escaping (Response<String,String>) ->())->(){
+
+
+}

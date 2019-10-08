@@ -7,15 +7,45 @@
 //
 
 import UIKit
+import ReSwift
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let appStore: Store<AppState>
 
-
+    
+    override init() {
+        appStore = Store<AppState>(
+            reducer: appReducer,
+            state: nil,
+            middleware: [
+                createMiddleware(userAuthentication())
+            ]
+        )
+        super.init()
+    }
+    
+    func setRootViewController(){
+        let navigationController : UINavigationController = UINavigationController()
+        let rootViewController : UIViewController = LoginController()
+        navigationController.viewControllers = [rootViewController]
+        self.window?.makeKeyAndVisible()
+        self.window?.rootViewController = navigationController
+    }
+    
+    fileprivate func setUpKeyboardManger() {
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldShowToolbarPlaceholder = false
+        IQKeyboardManager.shared.previousNextDisplayMode = IQPreviousNextDisplayMode.alwaysHide
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setRootViewController()
+        setUpKeyboardManger()
         return true
     }
 

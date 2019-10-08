@@ -6,4 +6,12 @@
 //  Copyright © 2019 Anil Santo. All rights reserved.
 //
 
-import Foundation
+import ReSwift
+
+struct LoaderShowAction : Action{
+    
+}
+
+struct LoaderHideAction : Action{
+    
+}

@@ -45,13 +45,4 @@ public class BaseButton: UIButton {
             self.setTitleColor(titleTextColor, for: .normal)
         }
     }
-    
-    var buttonTap : (BaseButton) -> () = { _ in}
-    
-    func bind(forControlEvent controlEvents : UIControl.Event,callback :@escaping (BaseButton) -> ()){
-        self.buttonTap = callback
-        self.addTarget(forControlEvents: controlEvents) { (sender) in
-            self.buttonTap(sender as! BaseButton)
-        }
-    }
 }

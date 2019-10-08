@@ -17,14 +17,14 @@ private func authenticateUser(action: Action, context: MiddlewareContext<AppStat
     guard let authenticateAction = action as? AuthenticateStartAction else{
         return action
     }
-    authenticateUser(requestBody: authenticateAction.request) { (response) in
-        if let statusCode = response.responseCode,(200..<300).contains(statusCode){
-            context.dispatch(AuthenticateSuccessAction(response: response))
-        }
-        else{
-            context.dispatch(AuthenticateFailureAction(errorResponse: response))
-        }
-    }
-    
+//    let
+//    authenticateUser(requestBody: ) { (response) in
+//        if let statusCode = response.responseCode,(200..<300).contains(statusCode){
+//            context.dispatch(AuthenticateSuccessAction(response: response))
+//        }
+//        else{
+//            context.dispatch(AuthenticateFailureAction(errorResponse: response))
+//        }
+//    }
     return action
 }

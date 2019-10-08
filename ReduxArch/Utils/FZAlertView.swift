@@ -20,13 +20,13 @@ extension FZAlertType {
         get {
             switch self {
             case .warning:
-                return cWarning
+                return .red
             case .caution:
-                return cCaution
+                return .yellow
             case .success:
-                return cSuccess
+                return .green
             case .note:
-                return cNote
+                return .blue
             }
         }
     }
@@ -66,7 +66,7 @@ class FZAlertView: UIView {
     
     fileprivate let messageTitle : UILabel = {
         let label = UILabel()
-        label.font = fAlertTitle
+        label.font = UIFont.systemFont(ofSize: 15)
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
@@ -74,8 +74,8 @@ class FZAlertView: UIView {
     
     fileprivate let messageTextView : UITextView = {
         let textView = UITextView()
-        textView.font = fAlertMessage
-        textView.textColor = cDarkBlue
+        textView.font = UIFont.systemFont(ofSize: 12)
+        textView.textColor = .black
         textView.textAlignment = .center
         textView.isEditable = false
         textView.isSelectable = false
@@ -106,7 +106,7 @@ class FZAlertView: UIView {
     }
     
     func setUpView(){
-        backgroundColor = cBalck70
+        backgroundColor = .init(r: 0, g: 0, b: 0, a: 0.50)
         addSubview(contianerView)
         
         contianerView.anchor(centerX: nil, centerY: centerYAnchor)
@@ -167,9 +167,9 @@ class FZAlertView: UIView {
         var doneBtn : UIButton?
         if done != nil {
             doneBtn = UIButton(type: .custom)
-            doneBtn?.titleLabel?.font = fAlertButton
+            doneBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 12)
             doneBtn?.translatesAutoresizingMaskIntoConstraints = false
-            doneBtn?.backgroundColor = cPumpkinOrange
+            doneBtn?.backgroundColor = .orange
             doneBtn?.layer.cornerRadius = 2
             doneBtn?.clipsToBounds = true
             doneBtn?.setTitle(done, for: .normal)
@@ -179,9 +179,9 @@ class FZAlertView: UIView {
         var cancelBtn : UIButton?
         if cancel != nil{
             cancelBtn = UIButton(type: .custom)
-            cancelBtn?.titleLabel?.font = fAlertButton
+            cancelBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 12)
             cancelBtn?.translatesAutoresizingMaskIntoConstraints = false
-            cancelBtn?.backgroundColor = cPumpkinOrange
+            cancelBtn?.backgroundColor = .orange
             cancelBtn?.layer.cornerRadius = 2
             cancelBtn?.clipsToBounds = true
             cancelBtn?.setTitle(cancel, for: .normal)

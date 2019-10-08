@@ -11,7 +11,13 @@ import ReSwift
 
 class MasterViewController: UIViewController {
     
-    var appStore : Store<AppState>!
+    var appStore : Store<AppState> {
+        return appDelegate.appStore
+    }
+    
+    var appDelegate: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

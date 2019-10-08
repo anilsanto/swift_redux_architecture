@@ -33,7 +33,7 @@ class ActivityLoader: UIView {
     }
     
     fileprivate func setUpView(){
-        backgroundColor = cBalck50
+        backgroundColor = .init(r: 0, g: 0, b: 0, a: 0.50)
         addSubview(backgroundView)
         backgroundView.anchor(centerX: centerXAnchor, centerY: centerYAnchor, size: .init(width: 60, height: 60))
         backgroundView.addSubview(loaderIcon)

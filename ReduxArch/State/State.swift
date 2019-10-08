@@ -6,4 +6,19 @@
 //  Copyright © 2019 Anil Santo. All rights reserved.
 //
 
-import Foundation
+import ReSwift
+
+struct AppState : StateType{
+    var loader : Loader
+    var loginViewModel : LoginViewModel
+    
+    init() {
+        self.loader = .hide
+        self.loginViewModel = LoginViewModel()
+    }
+}
+
+enum Loader {
+    case show
+    case hide
+}
